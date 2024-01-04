@@ -11,24 +11,24 @@
       <form action="">
         <h1>Login</h1>
         <div class="input-box">
-          <p id="usernameError" class="error-label"></p>
           <input
-            type=""
-            id="username"
-            placeholder="Username"
-            pattern="[a-zA-Z0-9]+[._]?[a-zA-Z0-9]+"
-            required
+          type=""
+          id="username"
+          placeholder="Username"
+          pattern="[a-zA-Z0-9]+[._]?[a-zA-Z0-9]+"
+          required
           />
         </div>
+        <p id="usernameError" class="error-label"></p>
         <div class="input-box">
-          <p id="passwordError" class="error-label"></p>
           <input
-            type="password"
-            id="password"
-            placeholder="Password"
-            required
+          type="password"
+          id="password"
+          placeholder="Password"
+          required
           />
         </div>
+        <p id="passwordError" class="error-label"></p>
         <div id="user-type">
           <label for="userType">Select user type:</label>
           <select id="userType" name="userType">
@@ -53,12 +53,12 @@
       function valildateForm() {
         const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
-        const usernameError = document.getElementById("usernameError");
+        const usernameError = document.getElementById("usernameError");a
         const passwordError = document.getElementById("passwordError");
 
         const usernameRegex = /^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/;
-        if (!username.match(usernameRegex)) {
-          usernameError.innerHTML = "Enter valid username";
+        if (!username.match(usernameRegex)) {   
+          usernameError.innerText = "Enter valid username";
           usernameError.style.color = "red";
         } else {
           usernameError.innerHTML = "";
@@ -66,8 +66,9 @@
 
         const passwordRegex = /^.{6,}$/;
         if (!password.match(passwordRegex)) {
-          passwordError.innerHTML = "Password must be at least 6 characters ";
-          passwordError.style.color = "red";
+          passwordError.innerText = "Password must be at least 6 characters ";
+          passwordError.style.color = "red"
+
         } else {
           passwordError.innerHTML = "";
         }
