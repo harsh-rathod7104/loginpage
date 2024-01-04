@@ -1,31 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Login Page</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="login-container">
-    <h2>Login</h2>
-    <form id="loginForm">
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-      </div>
-      <button type="submit">Login</button>
-    </form>
-  </div>
-  <div class="popup" id="popup">
-    <div class="popup-content">
-      <span class="close" onclick="closePopup()">&times;</span>
-      <p>Invalid email or password. Please try again.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <form action="">
+        <h1>Login</h1>
+        <div class="input-box">
+          <p id="usernameError" class="error-label"></p>
+          <input
+            type=""
+            id="username"
+            placeholder="Username"
+            pattern="[a-zA-Z0-9]+[._]?[a-zA-Z0-9]+"
+            required
+          />
+        </div>
+        <div class="input-box">
+          <p id="passwordError" class="error-label"></p>
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <div id="user-type">
+          <label for="userType">Select user type:</label>
+          <select id="userType" name="userType">
+            <option value="tiffinwala">Tiffinwala</option>
+            <option value="deliveryman">Deliveryman</option>
+          </select>
+        </div>
+        <div class="remember-forgot">
+          <label> <input type="checkbox" />Remember me </label>
+          <a href="#">Forgot password ?</a>
+        </div>
+        <button type="submit" class="btn" onclick="valildateForm()">
+          Login
+        </button>
+
+        <div class="register-link">
+          <p>Don't have an account?<a href="#">Register</a></p>
+        </div>
+      </form>
     </div>
-  </div>
-  <script src="script.js"></script>
-</body>
+    <script>
+      function valildateForm() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const usernameError = document.getElementById("usernameError");
+        const passwordError = document.getElementById("passwordError");
+
+        const usernameRegex = /^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/;
+        if (!username.match(usernameRegex)) {
+          usernameError.innerHTML = "Enter valid username";
+          usernameError.style.color = "red";
+        } else {
+          usernameError.innerHTML = "";
+        }
+
+        const passwordRegex = /^.{6,}$/;
+        if (!password.match(passwordRegex)) {
+          passwordError.innerHTML = "Password must be at least 6 characters ";
+          passwordError.style.color = "red";
+        } else {
+          passwordError.innerHTML = "";
+        }
+      }
+    </script>
+  </body>
 </html>
