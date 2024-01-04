@@ -96,12 +96,13 @@ margin-right: 3px;
 }
 
 .error-label{
-    font-size: 14px;
+    padding-left: 10px;
+    font-size: 17px;
     font-weight: 400;
 }
 
 #user-type{
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 #userType{
